@@ -1,96 +1,39 @@
 @ApiEjemplo_HostAddress = http://localhost:5156
 
-### Diagnóstico de la API y de MySQL
 GET {{ApiEjemplo_HostAddress}}/salud
-Accept: application/json
 
-### Listar categorías
+###
 GET {{ApiEjemplo_HostAddress}}/categoria
-Accept: application/json
 
-### Obtener categoría por id
-GET {{ApiEjemplo_HostAddress}}/categoria/1
-Accept: application/json
-
-### Crear categoría
+###
 POST {{ApiEjemplo_HostAddress}}/categoria
 Content-Type: application/json
 
-{
-  "nombre": "Computadores"
-}
+{"nombre": "Computadores"}
 
-### Actualizar categoría
+###
 PUT {{ApiEjemplo_HostAddress}}/categoria/1
 Content-Type: application/json
 
-{
-  "nombre": "Computadores y portátiles"
-}
+{"nombre": "Computadores y portátiles"}
 
-### Eliminar categoría
+###
 DELETE {{ApiEjemplo_HostAddress}}/categoria/1
 
-### Listar clientes
+###
 GET {{ApiEjemplo_HostAddress}}/cliente
-Accept: application/json
 
-### Obtener cliente por id
-GET {{ApiEjemplo_HostAddress}}/cliente/1
-Accept: application/json
-
-### Crear cliente
+###
 POST {{ApiEjemplo_HostAddress}}/cliente
 Content-Type: application/json
 
-{
-  "nombre": "Ana María Gómez",
-  "correo": "ana.gomez@correo.com",
-  "ciudad": "Medellín"
-}
+{"nombre": "Ana Gómez", "correo": "ana@correo.com", "ciudad": "Medellín"}
 
-### Actualizar cliente
-PUT {{ApiEjemplo_HostAddress}}/cliente/1
-Content-Type: application/json
-
-{
-  "nombre": "Ana María Gómez",
-  "correo": "ana.gomez@correo.com",
-  "ciudad": "Bogotá"
-}
-
-### Eliminar cliente
-DELETE {{ApiEjemplo_HostAddress}}/cliente/1
-
-### Listar productos
+###
 GET {{ApiEjemplo_HostAddress}}/producto
-Accept: application/json
 
-### Obtener producto por id
-GET {{ApiEjemplo_HostAddress}}/producto/1
-Accept: application/json
-
-### Crear producto
+###
 POST {{ApiEjemplo_HostAddress}}/producto
 Content-Type: application/json
 
-{
-  "nombre": "Portátil HP 15",
-  "idCategoria": 1,
-  "precio": 2450000,
-  "stock": 10
-}
-
-### Actualizar producto
-PUT {{ApiEjemplo_HostAddress}}/producto/1
-Content-Type: application/json
-
-{
-  "nombre": "Portátil HP 15",
-  "idCategoria": 1,
-  "precio": 2399000,
-  "stock": 8
-}
-
-### Eliminar producto
-DELETE {{ApiEjemplo_HostAddress}}/producto/1
+{"nombre": "Portátil HP 15", "idCategoria": 1, "precio": 2450000, "stock": 10}

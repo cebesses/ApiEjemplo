@@ -3,7 +3,6 @@ using MySqlConnector;
 
 namespace ApiEjemplo.Controllers;
 
-/// <summary>Endpoint de diagnóstico: comprueba que la API responde y que MySQL está accesible.</summary>
 [ApiController]
 [Route("[controller]")]
 public class SaludController(MySqlDataSource db) : ControllerBase
@@ -15,7 +14,6 @@ public class SaludController(MySqlDataSource db) : ControllerBase
         await using var comando = conexion.CreateCommand();
         comando.CommandText = "SELECT 1";
         await comando.ExecuteScalarAsync();
-
         return Ok(new { estado = "OK", baseDatos = "MySQL" });
     }
 }

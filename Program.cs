@@ -2,14 +2,10 @@ using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Cadena de conexión a MySQL definida en appsettings.json (ConnectionStrings:Tienda).
-var cadenaConexion = builder.Configuration.GetConnectionString("Tienda")
-    ?? throw new InvalidOperationException(
-        "No se encontró la cadena de conexión 'Tienda' en appsettings.json.");
+var cadena = builder.Configuration.GetConnectionString("Tienda")
+    ?? throw new InvalidOperationException("Falta la cadena de conexión 'Tienda'.");
 
-// Un único MySqlDataSource (pool de conexiones) para toda la aplicación.
-builder.Services.AddSingleton(_ => new MySqlDataSource(cadenaConexion));
-
+builder.Services.AddSingleton(_ => new MySqlDataSource(cadena));
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
@@ -21,7 +17,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
